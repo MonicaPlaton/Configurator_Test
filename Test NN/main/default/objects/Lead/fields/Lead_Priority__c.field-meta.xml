@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Priority__c</fullName>
+    <description>Display on the lead record a field which calculates the priority of the lead based on the
+Number of employees:
+a. &lt;50 – ‘Low’
+b. 50-100-‘Medium’
+c. &gt;100- ‘High’</description>
+    <externalId>false</externalId>
+    <formula>IF(NumberOfEmployees &lt; 50,&quot;Low&quot;, 
+  IF(NumberOfEmployees &lt; 100,&quot;Medium&quot;,&quot;High&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lead Priority</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

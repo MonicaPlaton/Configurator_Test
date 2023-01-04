@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequestEmailandLeadSource_ForClosedLeads</fullName>
+    <active>true</active>
+    <description>Prevent users from closing the lead if the Email and Lead Source fields are not filled in.</description>
+    <errorConditionFormula>AND(
+OR(
+ISPICKVAL( Status ,&apos;Closed - Converted&apos;),
+ISPICKVAL(Status,&apos;Closed - Not Converted&apos;)
+),
+OR(
+ISPICKVAL( LeadSource , &apos;&apos;),
+ISBLANK( Email ) 
+)
+)</errorConditionFormula>
+    <errorMessage>Email and/or Lead Source fields are not filled in. 
+These fields cannot be blank if the status is Closed.
+Please fill in the value for these fields.</errorMessage>
+</ValidationRule>
