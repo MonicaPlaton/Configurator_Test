@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Lead</fullName>
+    <active>true</active>
+    <description>Upon the closure of the lead, the record should no longer be editable.</description>
+    <errorConditionFormula>AND(
+   $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+   NOT(ISNEW()),
+   RecordType.DeveloperName = &quot;Acquired&quot;
+)</errorConditionFormula>
+    <errorMessage>You cannot make changes on a Closed Lead.</errorMessage>
+</ValidationRule>
